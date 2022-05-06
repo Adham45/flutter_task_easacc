@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">easacc</string>
+    <string name="facebook_app_id">728568158275502</string>
+    <string name="fb_login_protocol_scheme">fb728568158275502</string>
+    <string name="facebook_client_token">67459df5bad6f5eae683cc1bc5c58d2b</string>
+
+
+</resources>
