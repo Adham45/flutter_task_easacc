@@ -2,7 +2,7 @@ import 'package:easacc_task/constants.dart';
 import 'package:easacc_task/core/services/alerts.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter_blue/flutter_blue.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 import '../../core/values.dart';
 
@@ -16,7 +16,7 @@ class AccessNetworkDevicesComponent extends StatefulWidget {
 
 class _AccessNetworkDevicesComponentState
     extends State<AccessNetworkDevicesComponent> {
-  final FlutterBlue instance = FlutterBlue.instance;
+  final FlutterBluePlus instance = FlutterBluePlus.instance;
   List<ScanResult> devices = [];
 
   @override
