@@ -5,6 +5,8 @@ import 'package:easacc_task/view/widgets/custom_text.dart';
 
 import 'package:flutter/material.dart';
 
+import 'access_network_devices.dart';
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
@@ -14,83 +16,48 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   TextEditingController textFieldController = TextEditingController();
-  String dropdownValue = 'Wi-Fi';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomText(
-                  text: "Enter Your URL",
-                  color: Colors.grey,
-                ),
-                TextField(
-                  controller: textFieldController,
-                  cursorColor: primaryColor,
-                  decoration: InputDecoration(
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: primaryColor,),
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                    text: "Enter Your URL",
+                    color: Colors.grey,
+                  ),
+                  TextField(
+                    controller: textFieldController,
+                    cursorColor: primaryColor,
+                    decoration: InputDecoration(
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: primaryColor,),
+                      ),
+                    ),
+                    style: TextStyle(
+                      color: Colors.black,
                     ),
                   ),
-                  style: TextStyle(
-                    color: Colors.black,
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomText(
-                      text: "Access Network Devices",
-                      color: Colors.grey,
-                    ),
-                    SizedBox(
-                      width: 80,
-                    ),
-                    DropdownButton<String>(
-                      value: dropdownValue,
-                      icon: const Icon(Icons.arrow_downward),
-                      elevation: 16,
-                      style: const TextStyle(
-                        color: Colors.black,
-                      ),
-                      underline: Container(
-                        height: 2,
-                        color: primaryColor,
-                      ),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownValue = newValue!;
-                        });
-                      },
-                      items: <String>['Wi-Fi', 'Bluetooth']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 440,
-                ),
-                CustomGeneralButton(
-                  text: "Go",
-                  onTap: () {
-                    _goToWebSite(context);
-                  },
-                ),
-              ],
+                  SizedBox(height: 10,),
+                  AccessNetworkDevicesComponent(),
+
+                  CustomGeneralButton(
+                    text: "Go",
+                    onTap: () {
+                      _goToWebSite(context);
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
